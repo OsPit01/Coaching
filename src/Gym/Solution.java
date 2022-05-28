@@ -34,7 +34,7 @@ public class Solution {
                     System.out.println("write your: \"login\"");
                     log = reader.readLine();
                     System.out.println("Your login:" + " " + log);
-                    System.out.println(log + " " + "Please write your porol" + " " + " " + "only numbers\n  \t  size maximum 10 numbers");
+                    System.out.println(log + " " + "Please write your password" + " " + " " + "only numbers\n  \t  size maximum 10 numbers");
                     String temp = reader.readLine();
 
                     porol = Integer.parseInt(temp);
@@ -47,31 +47,32 @@ public class Solution {
                         break;
 
                     }
-                    System.out.println("your porol successfully added");
+                    System.out.println("your password successfully added\n");
                     user.put(porol, log);
 
 
-                    System.out.println("Please confirm your porol");
-
                     while (true) {
-                        if (user.containsKey(Integer.parseInt(reader.readLine()))) {
-                            System.out.println("Welcome" + "\t" + log);
-                            break;
+                        System.out.println("Login to your account\n");
+                        System.out.println("enter your login");
+                        if (reader.readLine().equals(log)) {
+                            System.out.println("Please enter your Password");
+                            if (user.containsKey(Integer.parseInt(reader.readLine()))) {
+                                System.out.println("Welcome" + "\t" + log);
+                                break;
+                            }
                         } else {
                             System.out.println("not available\t" + "password entered incorrectly \t " + "please repeat again");
                         }
-
                     }
 
-
                 }
-break;
-            }
 
+                break;
+            }
         } catch (Exception e) {
-            System.out.println("password entered incorrectly -" +
-                    " perhaps you have exceeded the size of the numbers or used the wrong format");
+            System.out.println("password or login entered incorrectly");
         }
     }
-
 }
+
+
