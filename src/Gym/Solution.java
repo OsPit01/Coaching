@@ -15,7 +15,8 @@ public class Solution {
             System.out.println("1.Login 2.Register 3.exit");
             System.out.println("please do choice");
             Scanner scanner = new Scanner(System.in);
-            UsersInformation uid = new TryRegister();
+            RegisterComand uid = new RegisterComand();
+            LoginComand comand = new LoginComand();
             String choice = scanner.nextLine();
 
             switch (choice) {
@@ -25,7 +26,7 @@ public class Solution {
                     String newUserName = scanner.nextLine();
                     System.out.println("######## Inter for password #########");
                     String newPassword = scanner.nextLine();
-                    boolean flag = uid.isLogin(newUserName, newPassword);
+                    boolean flag = comand.isLogin(newUserName, newPassword);
                     if (flag) {
                         System.out.println("\n" + "Successful entry");
                     } else {
@@ -39,7 +40,7 @@ public class Solution {
                     System.out.println("enter password ");
                     String password = scanner.nextLine();
 
-                    Users user = new Users();
+                    UserContainer user = new UserContainer();
                     user.setName(userName);
                     user.setPassword(password);
                     uid.register(user);
