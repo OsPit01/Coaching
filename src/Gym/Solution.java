@@ -1,50 +1,42 @@
 package Gym;
 
 
-import java.sql.SQLOutput;
-import java.util.*;
+import java.util.Scanner;
 
 public class Solution {
 
 
     public static void main(String[] args) {
-
+        UserContainer userContainer = null;
         while (true) {
 
             System.out.println("******** Register *********");
             System.out.println("1.Login 2.Register 3.exit");
             System.out.println("please do choice");
             Scanner scanner = new Scanner(System.in);
-            RegisterComand uid = new RegisterComand();
-            LoginComand comand = new LoginComand();
             String choice = scanner.nextLine();
 
             switch (choice) {
                 case "1":
                     System.out.println("######## Login #######");
                     System.out.println("######## Enter for registered username ########");
-                    String newUserName = scanner.nextLine();
+                    String userName = scanner.nextLine();
                     System.out.println("######## Inter for password #########");
-                    String newPassword = scanner.nextLine();
-                    boolean flag = comand.isLogin(newUserName, newPassword);
-                    if (flag) {
+                    String password = scanner.nextLine();
+                    if (userContainer.isNameExists(userName, password)) {
                         System.out.println("\n" + "Successful entry");
                     } else {
                         System.out.println("wrong username or password");
+
                     }
                     break;
                 case "2":
                     System.out.println("############# Register ###############");
                     System.out.println("enter UserName");
-                    String userName = scanner.nextLine();
+                    String createName = scanner.nextLine();
                     System.out.println("enter password ");
-                    String password = scanner.nextLine();
-
-                    UserContainer user = new UserContainer();
-                    user.setName(userName);
-                    user.setPassword(password);
-                    uid.register(user);
-
+                    String createPassword = scanner.nextLine();
+                    userContainer = new UserContainer(createName, createPassword);
                     System.out.println("Registration was successful");
                     break;
 
